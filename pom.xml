@@ -38,6 +38,31 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>at.favre.lib</groupId>
+            <artifactId>bcrypt</artifactId>
+            <version>0.10.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -61,7 +86,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                hr.tvz.carservicemanagementsystem.carservicemanagementsystem/hr.tvz.carservicemanagementsystem.HelloApplication
+                                hr.tvz.carservicemanagementsystem.carservicemanagementsystem/hr.tvz.carservicemanagementsystem.app.CarServiceManagementSystemApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
