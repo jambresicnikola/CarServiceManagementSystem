@@ -3,14 +3,33 @@ package hr.tvz.carservicemanagementsystem.validation;
 import hr.tvz.carservicemanagementsystem.dto.UserSignInDTO;
 import hr.tvz.carservicemanagementsystem.dto.UserSignUpDTO;
 import hr.tvz.carservicemanagementsystem.exception.ValidationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for validating user-related input data.
+ * Collects all validation errors before throwing, so the user
+ * receives complete feedback in a single pass.
+ */
 public class UserValidation {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserValidation.class);
+
     private UserValidation() {}
 
+    /**
+     * Validates the sign up form data.
+     * Checks first name, last name, email format, password strength
+     * and that the confirmation password matches.
+     *
+     * @param dto the sign up data to validate
+     * @throws ValidationException if one or more validation rules are violated
+     */
     public static void validateUserSignUp(UserSignUpDTO dto) {
+        logger.debug("Validating sign up data for email: {}", dto.email());
         List<String> errors = new ArrayList<>();
 
         validateFirstName(dto.firstName(), errors);
@@ -19,11 +38,20 @@ public class UserValidation {
         validatePassword(dto.password(), dto.confirmPassword(), errors);
 
         if (!errors.isEmpty()) {
+            logger.warn("Sign up validation failed with {} error(s): {}", errors.size(), errors);
             throw new ValidationException(String.join("\n", errors));
         }
     }
 
+    /**
+     * Validates the sign in form data.
+     * Checks that email is in a valid format and password is not blank.
+     *
+     * @param userSignInDTO the sign in data to validate
+     * @throws ValidationException if one or more validation rules are violated
+     */
     public static void validateUserSignIn(UserSignInDTO userSignInDTO) {
+        logger.debug("Validating sign in data for email: {}", userSignInDTO.email());
         List<String> errors = new ArrayList<>();
 
         validateEmail(userSignInDTO.email(), errors);
@@ -33,6 +61,7 @@ public class UserValidation {
         }
 
         if (!errors.isEmpty()) {
+            logger.warn("Sign in validation failed with {} error(s): {}", errors.size(), errors);
             throw new ValidationException(String.join("\n", errors));
         }
     }

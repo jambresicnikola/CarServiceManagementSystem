@@ -13,6 +13,8 @@ public class CarServiceManagementSystemApplication extends Application {
 
     @Override
     public void start(Stage stage) {
+        logger.info("Starting Car Service Management System");
+
         Thread.currentThread().setUncaughtExceptionHandler((thread, throwable) -> {
             logger.error("Unexpected error on thread: {}", thread.getName(), throwable);
 
@@ -22,6 +24,7 @@ public class CarServiceManagementSystemApplication extends Application {
         });
 
         SceneManager.setStage(stage);
+        logger.debug("Stage initialized, opening welcome screen");
         SceneManager.openWelcomeScreen();
     }
 }
