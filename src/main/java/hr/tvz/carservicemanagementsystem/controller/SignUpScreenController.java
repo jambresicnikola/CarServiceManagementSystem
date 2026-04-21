@@ -61,4 +61,11 @@ public class SignUpScreenController {
             DialogUtils.showError("Registration failed", e.getMessage());
         }
     }
+
+    /**
+     * Navigates to the welcome screen.
+     */
+    public void backToWelcomeScreen() {
+        SceneManager.openWelcomeScreen();
+    }
 }

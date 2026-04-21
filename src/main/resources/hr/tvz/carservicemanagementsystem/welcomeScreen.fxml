@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -7,49 +8,78 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.carservicemanagementsystem.controller.WelcomeScreenController">
-   <center>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Sign in" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label text="Email:" GridPane.rowIndex="1" />
-            <Label text="Password:" GridPane.rowIndex="2" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-               <children>
-                  <Label text="Don't have an account?" />
-                  <Label onMouseClicked="#signUp" text="Sign up">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Label>
-               </children>
-            </HBox>
-            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#signIn" text="Sign in" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" text="Remember me" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-         </children>
-      </GridPane>
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #EBEBEB;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.carservicemanagementsystem.controller.WelcomeScreenController">
+    <center>
+        <VBox alignment="CENTER" fillWidth="false" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="420.0" prefWidth="380.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                    <padding>
+                        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                    </padding>
+                    <children>
+                        <Label text="Welcome Back" textFill="#004E98">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Label text="Please enter your details" textFill="#808080">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Email address" textFill="#3A6EA5" />
+                                <TextField fx:id="emailTextField" prefHeight="40.0" promptText="Enter your email" style="-fx-background-radius: 8; -fx-border-color: #C0C0C0; -fx-border-radius: 8;" />
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Password" textFill="#3A6EA5" />
+                                <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="••••••••" style="-fx-background-radius: 8; -fx-border-color: #C0C0C0; -fx-border-radius: 8;" />
+                            </children>
+                        </VBox>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" text="Remember me" textFill="#808080" />
+                            </children>
+                        </HBox>
+
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="45.0" style="-fx-background-color: #004E98; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="Sign In">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+
+                        <HBox alignment="CENTER" spacing="5.0">
+                            <children>
+                                <Label text="Don't have an account?" textFill="#808080" />
+                                <Label onMouseClicked="#signUp" text="Sign up" textFill="#FF6700" style="-fx-font-weight: bold;">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>
