@@ -41,7 +41,7 @@ public class SceneManager {
         logger.debug("Opening screen: {}", fxml);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(CarServiceManagementSystemApplication.class.getResource(fxml));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
             stage.setTitle("Car Service Management System");
             stage.setScene(scene);
             stage.show();
@@ -78,5 +78,10 @@ public class SceneManager {
             logger.debug("Opening mechanic home screen");
             openScreen("/hr/tvz/carservicemanagementsystem/mechanicHomeScreen.fxml");
         }
+    }
+
+    public static void openManageUsersScreen() {
+        logger.debug("Opening manage users screen");
+        openScreen("/hr/tvz/carservicemanagementsystem/manageUsersScreen.fxml");
     }
 }
