@@ -54,7 +54,7 @@ public class UserDatabaseRepository extends AbstractRepository<User> {
      * @throws RepositoryAccessException if a database error occurs
      */
     @Override
-    User findById(Long id) {
+    public User findById(Long id) {
         logger.debug("Finding user by id: {}", id);
         Connection conn = DatabaseConnection.getInstance();
 
@@ -80,7 +80,7 @@ public class UserDatabaseRepository extends AbstractRepository<User> {
      * @throws RepositoryAccessException if a database error occurs
      */
     @Override
-    List<User> findAll() {
+    public List<User> findAll() {
         logger.debug("Fetching all users");
         List<User> users = new ArrayList<>();
 
@@ -127,12 +127,12 @@ public class UserDatabaseRepository extends AbstractRepository<User> {
     }
 
     @Override
-    void delete(User entity) {
+    public void delete(User entity) {
         //delete
     }
 
     @Override
-    void update(User entity) {
+    public void update(User entity) {
         //update
     }
 

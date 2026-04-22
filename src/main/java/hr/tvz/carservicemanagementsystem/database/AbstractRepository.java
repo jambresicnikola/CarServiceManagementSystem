@@ -17,33 +17,33 @@ abstract class AbstractRepository<T extends Entity> {
      * @param id the unique identifier of the entity
      * @return the entity, or {@code null} if not found
      */
-    abstract T findById(Long id);
+    public abstract T findById(Long id);
 
     /**
      * Retrieves all entities of type {@code T} from the database.
      *
      * @return list of all entities, empty list if none exist
      */
-    abstract List<T> findAll();
+    public abstract List<T> findAll();
 
     /**
      * Persists a new entity to the database.
      *
      * @param entity the entity to save
      */
-    abstract void save(T entity);
+    public abstract void save(T entity);
 
     /**
      * Deletes an entity from the database.
      *
      * @param entity the entity to delete
      */
-    abstract void delete(T entity);
+    public abstract void delete(T entity);
 
     /**
      * Updates an existing entity in the database.
      *
      * @param entity the entity with updated values
      */
-    abstract void update(T entity);
+    public abstract void update(T entity);
 }
